@@ -1,0 +1,66 @@
+<html ng-app="learningnode">
+    <head>
+        <title>MyEAN App</title>
+        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"><!-- load bootstrap -->
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
+        <script src="core.js"></script>
+    </head>
+    <body ng-controller="maincontroller">
+        <div class="controller-fluid">
+            <nav class="navbar navbar-default">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <a class="navbar-brand" href="#">WebSiteName</a>
+                    </div>
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="#">Home</a></li>
+                        <li><a href="#">Page 1</a></li>
+                        <li><a href="#">Page 2</a></li> 
+                        <li><a href="#">Page 3</a></li> 
+                    </ul>
+                </div>
+            </nav>
+            <div class="col-md-10">
+                
+                <form class="form-horizontal">
+                    <div class="form-group">
+                        <label class="control-label col-sm-2" for="email">Username:</label>
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control" ng-model="user.username" id="username" placeholder="Enter username">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-sm-2" for="email">Password:</label>
+                        <div class="col-sm-6">
+                            <input type="password" class="form-control" ng-model="user.password" id="password" placeholder="Enter password">
+                        </div>
+                    </div>
+                    <div class="form-group"> 
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <button type="submit" class="btn btn-default" ng-click="submit()">Add</button>
+                        </div>
+                    </div>
+                </form>
+                <table class="table table-striped">                
+                    <thead>
+                        <tr>
+                            <th>User ID</th>
+                            <th>User Name</th>
+                            <th>Password</th>
+                            <th>Created On</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="item in user_list">
+                            <td>{{item.user_id}}</td>
+                            <td>{{item.user_name}}</td>
+                            <td>{{item.password}}</td>
+                            <td>{{item.created_on | date: 'medium'}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>            
+        </div>        
+    </body>
+</html>
